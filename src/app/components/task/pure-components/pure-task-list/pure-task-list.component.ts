@@ -1,12 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Task, TaskState } from '../task/task.component';
+import { Task, TaskState } from '../pure-task/pure-task.component';
+
 
 @Component({
-  selector: 'app-task-list',
-  templateUrl: './task-list.component.html',
-  styleUrls: ['./task-list.component.scss']
+  selector: 'app-pure-task-list',
+  templateUrl: './pure-task-list.component.html',
+  styleUrls: ['./pure-task-list.component.scss']
 })
-export class TaskListComponent implements OnInit {
+export class PureTaskListComponent implements OnInit {
   tasksInOrder: Task[] = [];
 
   @Input() set tasks(arr: Task[]) {

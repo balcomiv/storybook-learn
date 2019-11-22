@@ -3,20 +3,19 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TaskComponent } from './components/task/task.component';
-import { TaskListComponent } from './components/task-list/task-list.component';
+import { PureTaskListComponent } from './components/task/pure-components/pure-task-list/pure-task-list.component';
+import { PureTaskComponent } from './components/task/pure-components/pure-task/pure-task.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
   exports: [
-    TaskComponent
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

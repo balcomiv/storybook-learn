@@ -1,9 +1,11 @@
 import { moduleMetadata } from '@storybook/angular';
 import { action } from '@storybook/addon-actions';
-import { TaskComponent, TaskState, Task } from 'src/app/components/task/task.component';
-import { TaskListComponent } from 'src/app/components/task-list/task-list.component';
+import { Task, TaskState, PureTaskComponent } from 'src/app/components/task/pure-components/pure-task/pure-task.component';
+import { PureTaskModule } from 'src/app/components/task/pure-components/pure-task/pure-task.module';
+import { PureTaskListModule } from 'src/app/components/task/pure-components/pure-task-list/pure-task-list.module';
 import { CommonModule } from '@angular/common';
-import { TaskModule } from 'src/app/components/task/task.module';
+import { PureTaskListComponent } from 'src/app/components/task/pure-components/pure-task-list/pure-task-list.component';
+
 
 const task: Task = {
     id: 1,
@@ -24,29 +26,30 @@ const defaultTasks = [
 const withPinnedTasks = [
     ...defaultTasks.slice(0, 5),
     { id: '6', title: 'Task 6 (pinned)', state: 'TASK_PINNED' },
-  ];
-  
-  const props = {
+];
+
+const props = {
     tasks: defaultTasks,
     onPinTask: action('onPinTask'),
     onArchiveTask: action('onArchiveTaks')
-  };
-  
+};
+
 export default {
     title: "Learn SB | Task List",
     decorators: [
         moduleMetadata({
-            declarations: [TaskListComponent, TaskComponent],
-            // imports: [TaskModule]
+            // declarations: [PureTaskListComponent],
+            imports: [PureTaskListModule]
         })
     ]
 }
+
 export const Default = () => ({
     template: `
         <div style="padding: 3rem">
-            <app-task-list [tasks]="tasks" 
+            <app-pure-task-list [tasks]="tasks" 
             (onPinTask)="onPinTask($event)" 
-            (onArchiveTask)="onArchiveTask($event)"></app-task-list>
+            (onArchiveTask)="onArchiveTask($event)"></app-pure-task-list>
         </div>
     `,
     props
@@ -55,9 +58,9 @@ export const Default = () => ({
 export const WithPinned = () => ({
     template: `
         <div style="padding: 3rem">
-            <app-task-list [tasks]="tasks" 
+            <app-pure-task-list [tasks]="tasks" 
             (onPinTask)="onPinTask($event)" 
-            (onArchiveTask)="onArchiveTask($event)"></app-task-list>
+            (onArchiveTask)="onArchiveTask($event)"></app-pure-task-list>
         </div>
     `,
     props: {
@@ -69,10 +72,10 @@ export const WithPinned = () => ({
 export const Loading = () => ({
     template: `
         <div style="padding: 3rem">
-            <app-task-list [tasks]="[]" 
+            <app-pure-task-list [tasks]="[]" 
             [loading]=true
             (onPinTask)="onPinTask($event)" 
-            (onArchiveTask)="onArchiveTask($event)"></app-task-list>
+            (onArchiveTask)="onArchiveTask($event)"></app-pure-task-list>
         </div>
     `,
     props
@@ -81,9 +84,9 @@ export const Loading = () => ({
 export const Empty = () => ({
     template: `
         <div style="padding: 3rem">
-            <app-task-list [tasks]="[]" 
+            <app-pure-task-list [tasks]="[]" 
             (onPinTask)="onPinTask($event)" 
-            (onArchiveTask)="onArchiveTask($event)"></app-task-list>
+            (onArchiveTask)="onArchiveTask($event)"></app-pure-task-list>
         </div>
     `,
     props

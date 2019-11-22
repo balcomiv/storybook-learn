@@ -14,11 +14,11 @@ export enum TaskState {
 }
 
 @Component({
-  selector: 'app-task-item',
-  templateUrl: './task.component.html',
-  styleUrls: ['./task.component.scss']
+  selector: 'app-pure-task-item',
+  templateUrl: './pure-task.component.html',
+  styleUrls: ['./pure-task.component.scss']
 })
-export class TaskComponent implements OnInit {
+export class PureTaskComponent implements OnInit {
   title: string;
   taskState = TaskState;
 

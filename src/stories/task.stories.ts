@@ -1,6 +1,7 @@
 import { moduleMetadata } from '@storybook/angular';
-import { TaskComponent, TaskState, Task } from 'src/app/components/task/task.component';
 import { action } from '@storybook/addon-actions';
+import { Task, TaskState, PureTaskComponent } from 'src/app/components/task/pure-components/pure-task/pure-task.component';
+import { PureTaskModule } from 'src/app/components/task/pure-components/pure-task/pure-task.module';
 
 const task: Task = {
     id: 1,
@@ -20,13 +21,14 @@ export default {
     title: "Learn SB | Task",
     decorators: [
         moduleMetadata({
-            declarations: [TaskComponent]
+            // declarations: [PureTaskComponent]
+            imports: [PureTaskModule]
         })
     ]
 }
 
 export const Inbox = () => ({
-    component: TaskComponent,
+    component: PureTaskComponent,
     props: {
         task: task,
         onPinTask: action('onPinTask'),
@@ -35,7 +37,7 @@ export const Inbox = () => ({
 })
 
 export const Pinned = () => ({
-    component: TaskComponent,
+    component: PureTaskComponent,
     props: {
         task: {...task, title: 'Pinned Task', state: TaskState.Pinned},
         onPinTask: action('onPinTask'),
@@ -44,7 +46,7 @@ export const Pinned = () => ({
 })
 
 export const Archived = () => ({
-    template: `<app-task-item [task]=task ></app-task-item>`,
+    template: `<app-pure-task-item [task]=task ></app-pure-task-item>`,
     props: {
         task: {...task, title: 'Archived Task', state: TaskState.Archived},
         onPinTask: action('onPinTask'),
