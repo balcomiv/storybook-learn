@@ -29,6 +29,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Helpful links for first storybook project
 https://www.learnstorybook.com/intro-to-storybook/angular/en/simple-component/
 https://github.com/chromaui/learnstorybook-code/blob/master/src/style/util/text.less
+https://github.com/chromaui/learnstorybook-code
+https://github.com/chromaui/learnstorybook-code/blob/master/src/components/Task.js
 
 https://storybook.js.org/docs/formats/component-story-format/
 
@@ -43,6 +45,10 @@ https://github.com/storybookjs/storybook/issues/6364
 
 ### Fixing Corrupted npm
 https://github.com/maximegris/angular-electron/issues/298
+
+### State Management
+https://ngrx.io/
+https://www.ngxs.io/concepts/actions
 
 ## Misc
 https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf

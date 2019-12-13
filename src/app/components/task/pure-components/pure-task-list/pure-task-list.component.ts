@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Task, TaskState } from '../pure-task/pure-task.component';
+import { Task } from '../../interfaces/task.model';
+import { TaskStates } from '../../enums/task-state.enum';
 
 
 @Component({
@@ -12,8 +13,8 @@ export class PureTaskListComponent implements OnInit {
 
   @Input() set tasks(arr: Task[]) {
     this.tasksInOrder = [
-      ...arr.filter(t => t.state === TaskState.Pinned),
-      ...arr.filter(t => t.state !== TaskState.Pinned),
+      ...arr.filter(t => t.state === TaskStates.Pinned),
+      ...arr.filter(t => t.state !== TaskStates.Pinned),
     ];
   }
 

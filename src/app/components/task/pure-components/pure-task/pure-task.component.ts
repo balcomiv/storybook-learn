@@ -1,17 +1,6 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-
-export interface Task {
-  id: number,
-  title: string,
-  state: TaskState,
-  updateDate: Date
-}
-
-export enum TaskState {
-  Inbox,
-  Pinned,
-  Archived
-}
+import { TaskStates} from '../../enums/task-state.enum';
+import { Task } from '../../interfaces/task.model';
 
 @Component({
   selector: 'app-pure-task-item',
@@ -20,7 +9,7 @@ export enum TaskState {
 })
 export class PureTaskComponent implements OnInit {
   title: string;
-  taskState = TaskState;
+  taskState = TaskStates;
 
   @Input() task: Task;
   @Output() onPinTask = new EventEmitter<number>();
