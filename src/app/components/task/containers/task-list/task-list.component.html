@@ -1,8 +1,5 @@
-<!-- <pure-task-list
-    [task]="task | async"
-    (onArchiveTask)="archiveTask($event)"
-    (onPinTask)="pinTaks($event)"
-></pure-task-list> -->
-
-
-<h3>Task List Component!</h3>
+<app-pure-task-list
+    [tasks]="tasks$ | async"
+    (archiveTask)="archiveTask($event)"
+    (pinTask)="pinTask($event)"
+></app-pure-task-list>

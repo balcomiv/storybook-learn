@@ -5,7 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './pure-inbox.component.html',
   styleUrls: ['./pure-inbox.component.scss']
 })
-export class PureInboxComponent implements OnInit { 
+export class PureInboxComponent implements OnInit {
   @Input() error: any;
 
   constructor() { }

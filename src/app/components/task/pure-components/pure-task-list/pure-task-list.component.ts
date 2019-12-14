@@ -19,7 +19,9 @@ export class PureTaskListComponent implements OnInit {
   }
 
   @Input() loading = false;
-  @Output() onPinTask = new EventEmitter<number>();
+
+  @Output() pinTask = new EventEmitter<number>();
+  @Output() archiveTask = new EventEmitter<number>();
 
   constructor() { }
 

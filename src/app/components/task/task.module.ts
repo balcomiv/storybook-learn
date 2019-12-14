@@ -14,12 +14,10 @@ import { TaskListComponent } from './containers/task-list/task-list.component';
   ],
   declarations: [
     TaskListComponent,
-    PureTaskListComponent,
     PureTaskComponent,
   ],
   exports: [
     TaskListComponent,
-    PureTaskListComponent,
     PureTaskComponent,
   ]
 })
