@@ -7,17 +7,17 @@ import { TaskModule } from './components/task/task.module';
 import { NgxsModule } from '@ngxs/store';
 import { TaskListComponent } from './components/task/containers/task-list/task-list.component';
 import { InboxComponent } from './pages/inbox/inbox.component';
+import { PureInboxComponent } from './pages/inbox/pure-inbox/pure-inbox.component';
+import { InboxModule } from './pages/inbox/inbox.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TaskListComponent,
-    InboxComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TaskModule,
+    InboxModule,
     NgxsModule.forRoot([]),
   ],
   exports: [
