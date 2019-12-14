@@ -3,18 +3,18 @@ import { TaskStates} from '../../enums/task-state.enum';
 import { Task } from '../../interfaces/task.model';
 
 @Component({
-  selector: 'app-pure-task-item',
+  selector: 'app-pure-task',
   templateUrl: './pure-task.component.html',
   styleUrls: ['./pure-task.component.scss']
 })
 export class PureTaskComponent implements OnInit {
   title: string;
-  taskState = TaskStates;
+  taskStates = TaskStates;
 
   @Input() task: Task;
-  @Output() onPinTask = new EventEmitter<number>();
-  @Output() onArchiveTask = new EventEmitter<number>();
 
+  @Output() pinTask = new EventEmitter<number>();
+  @Output() archiveTask = new EventEmitter<number>();
 
   constructor() { }
 
@@ -22,10 +22,10 @@ export class PureTaskComponent implements OnInit {
   }
 
   onPin(id: number) {
-    this.onPinTask.emit(id);
+    this.pinTask.emit(id);
   }
-  
+
   onArchive(id: number) {
-    this.onArchiveTask.emit(id);
+    this.archiveTask.emit(id);
   }
 }

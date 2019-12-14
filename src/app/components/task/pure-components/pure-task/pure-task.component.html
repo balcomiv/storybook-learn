@@ -3,7 +3,7 @@
 <label class="checkbox">
     <input
         type="checkbox"
-        [defaultChecked]="task?.state === taskState.Archived"
+        [defaultChecked]="task?.state === taskStates.Archived"
         disabled="true"
         name="checked"
     />
@@ -14,7 +14,7 @@
 </div>
 
 <div class="actions">
-    <a *ngIf="task?.state !== taskState.Archived" (click)="onPin(task.id)">
+    <a *ngIf="task?.state !== taskStates.Archived" (click)="onPin(task.id)">
     <span class="icon-star"></span>
     </a>
 </div>

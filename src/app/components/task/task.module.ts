@@ -4,6 +4,7 @@ import { PureTaskListComponent } from './pure-components/pure-task-list/pure-tas
 import { PureTaskComponent } from './pure-components/pure-task/pure-task.component';
 import { NgxsModule } from '@ngxs/store';
 import { TasksState } from 'src/tasks/state/task.state';
+import { TaskListComponent } from './containers/task-list/task-list.component';
 
 
 
@@ -12,10 +13,12 @@ import { TasksState } from 'src/tasks/state/task.state';
     CommonModule, NgxsModule.forFeature([TasksState])
   ],
   declarations: [
+    TaskListComponent,
     PureTaskComponent,
     PureTaskListComponent
   ],
   exports: [
+    TaskListComponent,
     PureTaskComponent,
     PureTaskListComponent
   ]

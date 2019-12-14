@@ -1,10 +1,10 @@
 <div class="list-items">
-    <app-pure-task-item
+    <app-pure-task
         *ngFor="let task of tasksInOrder"
         [task]="task"
-        (onArchiveTask)="onArchiveTask.emit($event)"
-        (onPinTask)="onPinTask.emit($event)">
-    </app-pure-task-item>
+        (onArchiveTask)="archiveTask.emit($event)"
+        (onPinTask)="pinTask.emit($event)">
+    </app-pure-task>
 
     <div *ngIf="tasksInOrder.length === 0 && !loading" class="wrapper-message">
         <span class="icon-check"></span>

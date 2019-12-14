@@ -10,18 +10,20 @@ import { TasksState, ArchiveTask, PinTask } from 'src/tasks/state/task.state';
   styleUrls: ['./task-list.component.scss']
 })
 export class TaskListComponent implements OnInit {
-  @Select(TasksState.getAllTasks) task$: Observable<Task[]>;
+  // @Select(TasksState.getAllTasks) tasks$: Observable<Task[]>;
 
-  constructor(private store: Store) { }
+  tasks$ = new Observable<Task[]>();
+
+  // constructor(private store: Store) { }
 
   ngOnInit() {}
 
   archiveTask(id: number) {
-    this.store.dispatch(new ArchiveTask(id));
+    // this.store.dispatch(new ArchiveTask(id));
   }
 
   pinTask(id: number) {
-    this.store.dispatch(new PinTask(id));
+    // this.store.dispatch(new PinTask(id));
   }
 
 }
