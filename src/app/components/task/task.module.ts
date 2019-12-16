@@ -5,20 +5,24 @@ import { PureTaskComponent } from './pure-components/pure-task/pure-task.compone
 import { NgxsModule } from '@ngxs/store';
 import { TasksState } from 'src/tasks/state/task.state';
 import { TaskListComponent } from './containers/task-list/task-list.component';
+import { PureTaskModule } from './pure-components/pure-task/pure-task.module';
+import { PureTaskListModule } from './pure-components/pure-task-list/pure-task-list.module';
 
 
 
 @NgModule({
   imports: [
-    CommonModule, NgxsModule.forFeature([TasksState])
+    CommonModule, 
+    NgxsModule.forFeature([TasksState]),
+    PureTaskListModule,
+    PureTaskModule
   ],
   declarations: [
     TaskListComponent,
-    PureTaskComponent,
   ],
   exports: [
     TaskListComponent,
-    PureTaskComponent,
+    PureTaskListComponent
   ]
 })
 export class TaskModule { }

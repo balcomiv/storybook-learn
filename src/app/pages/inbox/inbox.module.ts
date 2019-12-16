@@ -15,9 +15,9 @@ import { TaskModule } from 'src/app/components/task/task.module';
     InboxComponent,
     PureInboxComponent,
   ],
-  // exports: [
-  //   InboxComponent,
-  //   PureInboxComponent
-  // ]
+  exports: [
+    InboxComponent,
+    PureInboxComponent
+  ]
 })
 export class InboxModule { }

@@ -2,8 +2,8 @@
     <app-pure-task
         *ngFor="let task of tasksInOrder"
         [task]="task"
-        (onArchiveTask)="archiveTask.emit($event)"
-        (onPinTask)="pinTask.emit($event)">
+        (archiveTask)="archiveTask.emit($event)"
+        (pinTask)="pinTask.emit($event)">
     </app-pure-task>
 
     <div *ngIf="tasksInOrder.length === 0 && !loading" class="wrapper-message">

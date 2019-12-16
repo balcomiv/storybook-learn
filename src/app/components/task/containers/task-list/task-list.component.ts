@@ -10,9 +10,9 @@ import { TasksState, ArchiveTask, PinTask } from 'src/tasks/state/task.state';
   styleUrls: ['./task-list.component.scss']
 })
 export class TaskListComponent implements OnInit {
-  // @Select(TasksState.getAllTasks) tasks$: Observable<Task[]>;
+  @Select(TasksState.getAllTasks) tasks$: Observable<Task[]>;
 
-  tasks$ = new Observable<Task[]>();
+  // tasks$ = new Observable<Task[]>();
 
   // constructor(private store: Store) { }
 

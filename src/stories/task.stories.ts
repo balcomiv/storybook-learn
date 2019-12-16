@@ -33,8 +33,8 @@ export const Inbox = () => ({
     component: PureTaskComponent,
     props: {
         task,
-        onPinTask: action('onPinTask'),
-        onArchiveTask: action('onArchiveTask')
+        pinTask: action('pinTask'),
+        archiveTask: action('archiveTask')
     }
 });
 
@@ -42,8 +42,8 @@ export const Pinned = () => ({
     component: PureTaskComponent,
     props: {
         task: {...task, title: 'Pinned Task', state: TaskStates.Pinned},
-        onPinTask: action('onPinTask'),
-        onArchiveTask: action('onArchiveTask')
+        pinTask: action('pinTask'),
+        archiveTask: action('archiveTask')
     }
 });
 
@@ -51,7 +51,7 @@ export const Archived = () => ({
     template: `<app-pure-task [task]=task ></app-pure-task>`,
     props: {
         task: {...task, title: 'Archived Task', state: TaskStates.Archived},
-        onPinTask: action('onPinTask'),
-        onArchiveTask: action('onArchiveTask')
+        pinTask: action('pinTask'),
+        archiveTask: action('archiveTask')
     }
 });

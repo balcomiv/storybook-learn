@@ -3,6 +3,11 @@ import { moduleMetadata } from '@storybook/angular';
 import { PureTaskListModule } from 'src/app/components/task/pure-components/pure-task-list/pure-task-list.module';
 import { TaskStates } from '../app/components/task/enums/task-state.enum';
 import { Task } from '../app/components/task/interfaces/task.model';
+import { TasksState } from 'src/tasks/state/task.state';
+import { NgxsModule, Store } from '@ngxs/store';
+import { TaskModule } from 'src/app/components/task/task.module';
+import { PureTaskModule } from 'src/app/components/task/pure-components/pure-task/pure-task.module';
+import { environment } from 'src/environments/environment';
 
 const task: Task = {
     id: 1,
@@ -27,8 +32,8 @@ const withPinnedTasks = [
 
 const props = {
     tasks: defaultTasks,
-    onPinTask: action('onPinTask'),
-    onArchiveTask: action('onArchiveTaks')
+    pinTask: action('pinTask'),
+    archiveTask: action('archiveTask')
 };
 
 export default {
@@ -36,7 +41,12 @@ export default {
     decorators: [
         moduleMetadata({
             // declarations: [PureTaskListComponent],
-            imports: [PureTaskListModule]
+            // imports: [PureTaskListModule]
+            imports: [
+                TaskModule, 
+                NgxsModule.forRoot([TasksState], { developmentMode: !environment.production })
+            ],
+            providers: [Store],
         })
     ]
 };
@@ -45,8 +55,8 @@ export const Default = () => ({
     template: `
         <div style="padding: 3rem">
             <app-pure-task-list [tasks]="tasks"
-            (onPinTask)="onPinTask($event)"
-            (onArchiveTask)="onArchiveTask($event)"></app-pure-task-list>
+            (pinTask)="pinTask($event)"
+            (archiveTask)="archiveTask($event)"></app-pure-task-list>
         </div>
     `,
     props
@@ -56,8 +66,8 @@ export const WithPinned = () => ({
     template: `
         <div style="padding: 3rem">
             <app-pure-task-list [tasks]="tasks"
-            (onPinTask)="onPinTask($event)"
-            (onArchiveTask)="onArchiveTask($event)"></app-pure-task-list>
+            (pinTask)="pinTask($event)"
+            (archiveTask)="archiveTask($event)"></app-pure-task-list>
         </div>
     `,
     props: {
@@ -71,8 +81,8 @@ export const Loading = () => ({
         <div style="padding: 3rem">
             <app-pure-task-list [tasks]="[]"
             [loading]=true
-            (onPinTask)="onPinTask($event)"
-            (onArchiveTask)="onArchiveTask($event)"></app-pure-task-list>
+            (pinTask)="pinTask($event)"
+            (archiveTask)="archiveTask($event)"></app-pure-task-list>
         </div>
     `,
     props
@@ -82,9 +92,18 @@ export const Empty = () => ({
     template: `
         <div style="padding: 3rem">
             <app-pure-task-list [tasks]="[]"
-            (onPinTask)="onPinTask($event)"
-            (onArchiveTask)="onArchiveTask($event)"></app-pure-task-list>
+            (pinTask)="pinTask($event)"
+            (archiveTask)="archiveTask($event)"></app-pure-task-list>
         </div>
     `,
     props
 });
+
+export const SmartContainer = () => ({
+    template: `
+        <div style="padding: 3rem">
+            <app-task-list></app-task-list>
+        </div>
+    `,
+
+})

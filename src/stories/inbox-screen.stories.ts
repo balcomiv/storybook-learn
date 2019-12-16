@@ -6,15 +6,20 @@ import { PureInboxComponent } from '../app/pages/inbox/pure-inbox/pure-inbox.com
 import { NgxsModule, Store } from '@ngxs/store';
 import { TasksState } from 'src/tasks/state/task.state';
 import { TaskModule } from '../app/components/task/task.module';
+import { InboxModule } from 'src/app/pages/inbox/inbox.module';
+import { environment } from 'src/environments/environment';
 
 
 export default {
     title: 'Learn SB | Inbox Screen',
     decorators: [
         moduleMetadata({
-            imports: [TaskModule, NgxsModule.forRoot([TasksState])],
+            imports: [
+                InboxModule, 
+                NgxsModule.forRoot([TasksState], { developmentMode: !environment.production })
+            ],
             providers: [Store],
-            declarations: [InboxComponent, PureInboxComponent]
+            // declarations: [InboxComponent, PureInboxComponent]
         })
     ]
 };
